@@ -16,10 +16,8 @@ async function bootstrap() {
   app.enableCors({
     origin: true, // Permite cualquier origen
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
-    credentials: true, // Permite el envío de cookies y headers de autenticación
-    allowedHeaders: 'Content-Type, Authorization', // Encabezados permitidos
   });
-  
+
   const port = process.env.PORT || 3000;
 
   await app.listen(port);
