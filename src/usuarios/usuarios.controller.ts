@@ -37,7 +37,6 @@ export class UsuariosController {
     const hashedPassword = await bcrypt.hash(crearUsuarioDto.contrasenya_hash, 10); // 10 es el costo del hash, puedes ajustarlo según tus necesidades
     crearUsuarioDto.contrasenya_hash = hashedPassword;
     return await this.usuariosService.crear(crearUsuarioDto);
-
   }
 
   @Get()
