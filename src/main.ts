@@ -14,11 +14,14 @@ async function bootstrap() {
 
   // Habilitar CORS para permitir solicitudes de cualquier origen
   app.enableCors({
-    origin: ['http://localhost:8100', 'https://nutri-fit-backend-railway-production-80b9.up.railway.app'],
+    origin: true, // Permite cualquier origen, o especifica los necesarios
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Permite enviar credenciales como cookies, autorización headers o TLS client certificates
-    allowedHeaders: 'Content-Type, Authorization', // Asegúrate de incluir todos los headers que tu cliente pueda enviar
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false, // Asegura que NestJS maneje las solicitudes de pre-vuelo
+    optionsSuccessStatus: 204 // Establece un código de estado para respuestas de pre-vuelo exitosas
   });
+
 
   const port = process.env.PORT || 3000;
 
