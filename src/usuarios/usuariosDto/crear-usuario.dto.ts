@@ -5,4 +5,5 @@ export class CrearUsuarioDto {
     readonly edad?: number;
     readonly peso?: number;
     readonly altura?: number;
+    readonly sexo?: string;
   }

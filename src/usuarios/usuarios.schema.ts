@@ -22,5 +22,8 @@ export const UsuarioSchema: Schema = new Schema({
     },
     altura: {
         type: Number
+    },
+    sexo: {
+        type: String
     }
 });
