@@ -17,7 +17,7 @@ class InformacionNutricional {
 
 @Schema()
 export class Alimento extends mongoose.Document {
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   nombre: string;
 
   @Prop({ required: true, type: InformacionNutricional })
