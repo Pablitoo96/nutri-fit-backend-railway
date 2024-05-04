@@ -46,4 +46,13 @@ export class ConsumoController {
         return this.consumoService.findConsumosByUsuarioAndDate(usuarioId, new Date(fecha));
     }
 
+    @Get('/usuario/:usuarioId/calorias')
+    async getCaloriasPorDia(@Param('usuarioId') usuarioId: string) {
+      // Llama al servicio para calcular las calorías consumidas por día para el usuario dado
+      const caloriasDiarias = await this.consumoService.calcularCaloriasPorDia(usuarioId);
+      return {
+        usuarioId: usuarioId,
+        detalles: caloriasDiarias
+      };
+    }
 }
